@@ -1,0 +1,28 @@
+{
+    "name" : "Atcmobapp/Core",
+    "description" : "Default theme for Atcmobapp (Based on StartBootstrap Agency)",
+    "screenshot" : "img/screenshot.jpg",
+
+    "author" : "Atcmobapp Dev Team",
+    "authorEmail" : "team@metroeconomics.com",
+    "authorUrl" : "http://metroeconomics.com",
+
+    "isFrontendTheme": true,
+    "isBackendTheme": true,
+
+    "menus" : [
+        "main",
+        "footer"
+    ],
+
+    "regions" : [
+        "right"
+    ],
+
+    "settings": {
+        "select2Defaults": {
+            "dropdownAutoWidth": true,
+            "theme": "bootstrap"
+        }
+    }
+}

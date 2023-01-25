@@ -1,0 +1,79 @@
+{
+    "name": "atcmobile/app",
+    "description": "Atcmobapp skeleton app",
+    "homepage": "https://github.com/atcmobile/app",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ATC Mobile Team",
+            "email": "hotranan@gmail.com",
+            "homepage": "http://metroeconomics.com"
+        },
+        {
+            "name": "ATC Mobile Team",
+            "email": "contact@metroeconomics.com",
+            "homepage": "http://metroeconomics.com"
+        },
+        {
+            "name": "ATC Mobile Team",
+            "email": "hotranan@gmail.com",
+            "homepage": "http://metroeconomics.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "cakephp/cakephp": "3.9.2",
+        "cakephp/migrations": "^2.0.0",
+        "cakephp/plugin-installer": "~1.2.0",
+        "atcmobile/ckeditor": "^4.0",
+        "atcmobile/atcmobile": "^4.0.7",
+        "mobiledetect/mobiledetectlib": "2.*",
+        "admad/cakephp-jwt-auth": "2.3.2",
+        "firebase/php-jwt": "^5.0",
+        "twilio/sdk" : "^6.16.0"
+    },
+    "require-dev": {
+        "cakephp/bake": "^1.9.0",
+        "cakephp/cakephp-codesniffer": "^3.0",
+        "cakephp/debug_kit": "^3.17.0",
+        "josegonzalez/dotenv": "3.*",
+        "phpunit/phpunit": "^5|^6",
+        "psy/psysh": "@stable"
+    },
+    "suggest": {
+        "markstory/asset_compress": "An asset compression plugin which provides file concatenation and a flexible filter system for preprocessing and minification.",
+        "dereuromark/cakephp-ide-helper": "After baking your code, this keeps your annotations in sync with the code evolving from there on for maximum IDE and PHPStan compatibility."
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests/",
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "App\\Console\\Installer::postInstall",
+        "post-create-project-cmd": "App\\Console\\Installer::postInstall",
+        "post-autoload-dump": [
+            "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+            "Atcmobapp\\Install\\ComposerInstaller::postAutoloadDump"
+        ],
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+        "test": "phpunit --colors=always"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}

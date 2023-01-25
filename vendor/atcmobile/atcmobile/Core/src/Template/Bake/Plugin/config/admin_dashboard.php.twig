@@ -1,0 +1,12 @@
+<?php
+
+use Atcmobapp\Dashboards\AtcmobappDashboard;
+
+$config = [
+    '{{ plugin|lower }}.welcome' => [
+        'title' => __d('atcmobile', '{{ plugin }}'),
+        'cell' => '{{ plugin }}.Dashboard::welcome',
+        'weight' => 1,
+        'column' => AtcmobappDashboard::FULL,
+    ],
+];

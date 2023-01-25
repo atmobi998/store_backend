@@ -1,0 +1,14 @@
+{
+    "name" : "CKEditor",
+    "description" : "Integrates CKEditor WYSIWYG editor into Atcmobapp",
+
+    "author" : "ATC Mobile Team",
+    "authorEmail" : "hotranan@gmail.com",
+    "authorUrl" : "http://metroeconomics.com",
+
+    "dependencies": {
+        "plugins": [
+            "Atcmobapp/Wysiwyg"
+        ]
+    }
+}

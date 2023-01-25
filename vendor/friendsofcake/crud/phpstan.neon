@@ -1,0 +1,12 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	level: 6
+	paths:
+		- src
+	excludes_analyse:
+		- */src/TestSuite/*
+	checkMissingIterableValueType: false
+	universalObjectCratesClasses:
+		- Crud\Event\Subject

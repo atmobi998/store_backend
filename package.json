@@ -1,0 +1,19 @@
+{
+	"title": "Atcmobapp App",
+	"name": "atcmobile-app",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/atcmobile/app.git"
+	},
+	"dependencies": {
+		"bower": "1.8.8",
+		"grunt-cli": "0.1.x",
+		"grunt": "0.4.x",
+		"load-grunt-tasks": "~0.1.0"
+	},
+	"devDependencies": {
+		"grunt-shell": "0.3.x",
+		"grunt-contrib-less": "0.5.x",
+		"grunt-contrib-concat": "0.2.x"
+	}
+}

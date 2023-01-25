@@ -1,0 +1,21 @@
+{
+    "name": "atcmobile/dashboards",
+    "description": "Atcmobapp Dashboards Plugin",
+    "require": {
+        "atcmobile/core": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Atcmobapp Development Team",
+            "email": "team@metroeconomics.com"
+        }
+    ],
+    "type": "cakephp-plugin",
+    "autoload": {
+        "psr-4": {
+            "Atcmobapp\\Dashboards\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,21 @@
+{
+    "name": "atcmobile/settings",
+    "description": "Atcmobapp Settings Plugin",
+    "require": {
+        "atcmobile/core": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Atcmobapp Development Team",
+            "email": "team@metroeconomics.com"
+        }
+    ],
+    "type": "cakephp-plugin",
+    "autoload": {
+        "psr-4": {
+            "Atcmobapp\\Settings\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}

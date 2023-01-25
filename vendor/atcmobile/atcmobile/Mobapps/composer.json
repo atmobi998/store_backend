@@ -1,0 +1,26 @@
+{
+    "name": "atcmobile/Mobapps",
+    "description": "Mobapps Plugin",
+    "require": {
+        "atcmobile/core": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ATC Mobile Development Team",
+            "email": "team@metroeconomics.com"
+        }
+    ],
+    "type": "cakephp-plugin",
+    "autoload": {
+        "psr-4": {
+            "Atcmobapp\\Mobapps\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Atcmobapp\\Mobapps\\Test\\": "tests"
+        }
+    },
+    "minimum-stability": "dev"
+}

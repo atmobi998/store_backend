@@ -1,0 +1,72 @@
+<?php
+
+namespace Atcmobapp\Core\Controller;
+
+use Cake\Core\Configure;
+use Cake\Event\Event;
+use Cake\Routing\Router;
+
+/**
+ * Error Handling Controller
+ *
+ * Controller used by ErrorHandler to render error views.  This is based
+ * on CakePHP's own CakeErrorController with the following differences:
+ * - loads its own set of components and helpers
+ * - aware of Site.theme and Site.admin_theme
+ *
+ * @category Controllers
+ * @package  Atcmobapp.Atcmobapp.Controller
+ * @version  1.0
+ * @author   ATC Mobile Team <hotranan@gmail.com>
+ * @license  http://www.opensource.org/licenses/mit-license.php The MIT License
+ * @link     http://metroeconomics.com
+ */
+class ErrorController extends \Cake\Controller\ErrorController implements HookableComponentInterface
+{
+    use HookableComponentTrait;
+
+    public function initialize()
+    {
+        $this->_dispatchBeforeInitialize();
+
+        if (count(Router::extensions()) && !isset($this->RequestHandler)) {
+            $this->loadComponent('RequestHandler');
+        }
+
+        $eventManager = $this->getEventManager();
+        if (isset($this->Auth)) {
+            $eventManager->off($this->Auth);
+        }
+        if (isset($this->Security)) {
+            $eventManager->off($this->Security);
+        }
+
+        parent::initialize();
+    }
+
+    /**
+     * beforeFilter
+     *
+     * @return void
+     */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        if ($this->getRequest()->is('json')) {
+            return;
+        }
+        $viewBuilder = $this->viewBuilder();
+        $viewBuilder->setClassName('Atcmobapp/Core.Atcmobapp');
+        if ($this->getRequest()->getParam('prefix') === 'admin') {
+            $adminTheme = Configure::read('Site.admin_theme');
+            if ($adminTheme) {
+                $viewBuilder->setTheme($adminTheme);
+            }
+            if (!$this->getRequest()->is('ajax')) {
+                $viewBuilder->setLayout('admin_full');
+            }
+        } elseif (Configure::read('Site.theme')) {
+            $viewBuilder->setTheme(Configure::read('Site.theme'));
+        }
+    }
+}

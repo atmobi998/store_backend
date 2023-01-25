@@ -1,0 +1,41 @@
+{
+    "name": "atcmobile/core",
+    "description": "Atcmobapp Core Plugin",
+    "require": {
+        "cakephp/cakephp": "^3.8"
+    },
+    "require-dev": {
+        "cakephp/cakephp-codesniffer": "dev-master",
+        "phpunit/phpunit": "^5|^6",
+        "friendsofcake/cakephp-test-utilities": "dev-master"
+    },
+    "suggest": {
+        "atcmobile/example": "Example Atcmobapp plugin"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Atcmobapp Development Team",
+            "email": "team@metroeconomics.com"
+        }
+    ],
+    "type": "cakephp-plugin",
+    "autoload": {
+        "psr-4": {
+            "Atcmobapp\\Core\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Atcmobapp\\Core\\Test\\": "tests",
+            "Atcmobapp\\Core\\Test\\App\\": "tests/test_app/src",
+            "App\\": "tests/test_app/src",
+            "Shops\\": "tests/test_app/plugins/Shops/src",
+            "Suppliers\\": "tests/test_app/plugins/Suppliers/src"
+        }
+    },
+    "minimum-stability": "dev"
+}

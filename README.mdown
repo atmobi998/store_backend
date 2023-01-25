@@ -1,0 +1,5 @@
+# Atcmobapp
+
+**Atcmobapp** is a free, open source, content management system for PHP, released under [MIT License](http://github.com/atcmobile/atcmobile/blob/master/LICENSE.txt).
+
+Please refer to the main [README file](//github.com/atcmobile/atcmobile/tree/4.0.2/README.mdown)

@@ -1,0 +1,88 @@
+<?php
+
+use Migrations\AbstractMigration;
+use Phinx\Db\Adapter\MysqlAdapter;
+
+class MobordprdsInitialMigration extends AbstractMigration
+{
+    public function up()
+    {
+
+    $this->table('mobordprds',['id' => false, 'primary_key' => ['id']])
+        ->addColumn('id', 'biginteger', [ 'default' => null, 'limit' => 20, 'null' => false, 'identity' => true ])
+        ->addColumn('order_id', 'biginteger', [ 'default' => null, 'limit' => 20, 'null' => false ])
+        ->addColumn('prod_id', 'biginteger', [ 'default' => null, 'limit' => 20, 'null' => false ])
+        ->addColumn('prod_code', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('prdopt_id', 'biginteger', [ 'default' => null, 'limit' => 20, 'null' => true ])
+        ->addColumn('prd_name', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('prdopt_name', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('color', 'string', [ 'default' => '', 'limit' => 50, 'null' => true, ])
+        ->addColumn('quantity', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('weight', 'float', [ 'null' => true, 'default' => 0])
+        ->addColumn('price', 'float', [ 'null' => true, 'default' => 0])
+        ->addColumn('tax', 'float', [ 'null' => true, 'default' => 0])
+        ->addColumn('subtotal', 'float', [ 'null' => true, 'default' => 0])
+        ->addColumn('kitchen_need', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('kitchen_accept', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('kitchen_done', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('kitchen_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('kitchen_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('inv_need', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('inv_accept', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('inv_done', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('inv_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('inv_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('front_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('front_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('delivered', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('secfront_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('secfront_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('seckit_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('seckit_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('secinv_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('secinv_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('secpos_id', 'biginteger', [ 'default' => 0, 'limit' => 20, 'null' => true ])
+        ->addColumn('secpos_status', 'string', [ 'default' => '', 'limit' => 255, 'null' => true, ])
+        ->addColumn('rescaf', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('rescaf_tab', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('rescaf_take', 'integer', [ 'default' => 0, 'null' => true, ])
+        ->addColumn('note', 'text', [ 'limit' => MysqlAdapter::TEXT_MEDIUM, 'default' => null, 'null' => true, ])
+        ->addColumn('lft', 'integer', [ 'default' => null, 'null' => true, ])
+        ->addColumn('rght', 'integer', [ 'default' => null, 'null' => true, ])
+        ->addColumn('created_by', 'integer', [ 'default' => 1, 'limit' => 11, 'null' => true, ])
+        ->addColumn('modified_by', 'integer', [ 'default' => 1, 'limit' => 11, 'null' => true, ])
+        ->addTimestamps('created', 'modified')
+        ->addIndex( [ 'order_id', ] )
+        ->addIndex( [ 'prod_id', ] )
+        ->addIndex( [ 'prod_code', ] )
+        ->addIndex( [ 'prdopt_id', ] )
+        ->addIndex( [ 'prd_name', ] )
+        ->addIndex( [ 'prdopt_name', ] )
+        ->addIndex( [ 'kitchen_need', ] )
+        ->addIndex( [ 'kitchen_accept', ] )
+        ->addIndex( [ 'kitchen_done', ] )
+        ->addIndex( [ 'kitchen_id', ] )
+        ->addIndex( [ 'inv_need', ] )
+        ->addIndex( [ 'inv_accept', ] )
+        ->addIndex( [ 'inv_done', ] )
+        ->addIndex( [ 'inv_id', ] )
+        ->addIndex( [ 'delivered', ] )
+        ->addIndex( [ 'front_status', ] )
+        ->addIndex( [ 'front_id', ] )
+        ->addIndex( [ 'rescaf', ] )
+        ->addIndex( [ 'rescaf_tab', ] )
+        ->addIndex( [ 'rescaf_take', ] )
+        ->addIndex( [ 'secfront_id', ] )
+        ->addIndex( [ 'seckit_id', ] )
+        ->addIndex( [ 'secinv_id', ] )
+        ->addIndex( [ 'secpos_id', ] )
+        ->addIndex( [ 'created', ] )
+        ->addIndex( [ 'modified', ] )
+        ->create();
+    }
+
+    public function down()
+    {
+        $this->table('mobordprds')->drop()->save();
+    }
+}
